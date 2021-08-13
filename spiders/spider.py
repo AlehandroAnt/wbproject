@@ -6,11 +6,11 @@ from scrapy.loader import ItemLoader
 http = 'https://www.wildberries.ru'
 
 class WbSpider(scrapy.Spider):
-    name = "zonti"
-    custom_settings = {'ROTATING_PROXY_LIST_PATH': 'D:/BigProject/wildberries/proxy_http2.txt'}
+    name = "rel"
+    custom_settings = {'ROTATING_PROXY_LIST_PATH': 'D:/BigProject/wildberries/proxy_http.txt'}
 
     start_urls = [
-        'https://www.wildberries.ru/catalog/aksessuary/zonty'
+        'https://www.wildberries.ru/catalog/aksessuary/religioznye'
     ]
 
     def parse(self, response, **kwargs):
@@ -112,4 +112,3 @@ class WbSpider(scrapy.Spider):
             l.add_value('article', article)
 
             yield l.load_item()
-

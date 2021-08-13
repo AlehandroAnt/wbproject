@@ -59,6 +59,7 @@ CONCURRENT_REQUESTS_PER_DOMAIN = 16
 DOWNLOADER_MIDDLEWARES = {
     # 'rotating_proxies.middlewares.RotatingProxyMiddleware': 610,
     # 'rotating_proxies.middlewares.BanDetectionMiddleware': 620,
+
     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
     'scrapy_user_agents.middlewares.RandomUserAgentMiddleware': 400,
 }
@@ -68,7 +69,6 @@ ROTATING_PROXY_LIST_PATH =  'D:/BigProject/wildberries/proxy_http.txt'
 
 ROTATING_PROXY_PAGE_RETRY_TIMES = 15
 ROTATING_PROXY_BACKOFF_BASE = 5
-
 
 
 

@@ -73,13 +73,14 @@ def get_rating(html):
 
 
 class WbprojectItem(scrapy.Item):
-    article = scrapy.Field()
-    name = scrapy.Field()
-    seller_info = scrapy.Field()
-    brand = scrapy.Field()
-    url = scrapy.Field(input_processor = MapCompose(get_url))
+    article = scrapy.Field(output_processor = TakeFirst())
+    name = scrapy.Field(output_processor = TakeFirst())
+    seller = scrapy.Field(output_processor = TakeFirst())
+    brand = scrapy.Field(output_processor = TakeFirst())
+    url = scrapy.Field(input_processor = MapCompose(get_url), output_processor = TakeFirst())
     img = scrapy.Field(output_processor = TakeFirst())
     sold = scrapy.Field(output_processor = TakeFirst())
     price = scrapy.Field(output_processor = TakeFirst())
-    date = scrapy.Field(input_processor = MapCompose(get_start_date), output_processor = TakeFirst())
+    discount_price = scrapy.Field(output_processor = TakeFirst())
+    date_start_sale = scrapy.Field(input_processor = MapCompose(get_start_date), output_processor = TakeFirst())
     rating = scrapy.Field(output_processor = TakeFirst())
